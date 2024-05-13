@@ -7,9 +7,10 @@
       font-family: 'Montserrat', sans-serif;
     }
   
-    body {
-      font-family: system-ui, sans-serif;
-      height: 100vh ;
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; 
     }
 
     img {
@@ -21,41 +22,43 @@
   }
   @layer starter {
     .container-main {
-      max-width:140ch;
-      margin-inline: auto;
-      scroll-snap-type: y proximity;  
-      height: 100vh ;
-      min-height: 100vh;
+      /* max-width:140ch;
+      margin-inline: auto; */
+      height: calc(100vh - var(--navbar-height)); 
+      overflow-y: scroll; 
+      scroll-snap-type: y mandatory; 
     }
 
     section {
-      height: 100vh;
-      scroll-snap-align: start;
-      
+      height: calc(100vh - var(--navbar-height));
+      scroll-snap-align: start;   
+      width: 100%;
+      overflow: hidden;
     }
  
+
   }
 
   
-  section.category {
+  .category {
+    max-width:140ch;
+    margin-inline: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 13px;
     padding: 30px;
-    height: auto; 
-    
   }
-  
+
   .card {
     display: grid;
     position: relative;
     transition: transform 0.3s ease, z-index 0s;
     z-index: 0;
-    cursor: pointer; /* Changes the cursor to a pointer when hovering over the card */
+    cursor: pointer; 
   }
   .card:hover {
     transform: scale(1.05);
-    z-index: 10; /* Scales up the card slightly on hover */
+    z-index: 10; 
   }
   
   .card > * {
@@ -70,8 +73,8 @@
     position: relative;
   }
   .card:hover .title {
-    color: rgb(231, 231, 161); /* Changes title color on hover */
-    background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background for better visibility */
+    color:var(--secondary-color);
+    background-color: rgba(0, 0, 0, 0.5); 
   }
   .main-event {
     grid-column: span 2;
@@ -99,16 +102,19 @@
 
 
 
-  section .products {
-    height: auto;  
-    min-height: 100vh;
+   .products {
     position: relative;
-    
     display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--secondary-color);
   }
-    
+  .products-wrapper {
+    width: 100%; /* Full width of the section */
+    overflow-y: auto; /* Allows scrolling within the products section */
+    max-height: calc(100vh - var(--navbar-height)); /* Max height adjusted for padding */
+}
 
     .all-products{
         display: flex;
@@ -131,6 +137,7 @@
         justify-content: center;
         border-radius: 1.2rem;
         margin: 2rem; 
+        
         
     }
 

@@ -2,9 +2,10 @@
 *{
     margin: 0;
     padding: 0;
-    outline: none;
+    /* outline: none; */
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    
   }
 
   nav{
@@ -13,7 +14,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: var(--navbar-height);
     padding: 0 100px;
   }
   label.logo{
