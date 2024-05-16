@@ -27,37 +27,42 @@
       scroll-snap-align: start;   
     }
  
+    main {
+      max-width: 120ch;
+      margin-inline: auto;
+    }
 
   }
 
-  
+
   .category {
-    max-width:140ch;
-    margin-inline: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     padding: 30px;
+
   }
+
   @media (max-width: 1024px) { /* Adjust this value to match your laptop screen width */
     .category {
         max-width: 120ch;
     }
-}
+  }
 
 /* You can add more media queries for other screen sizes if needed */
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     .category {
         max-width: 100ch;
     }
-}
-
-@media (max-width: 480px) {
-    .category {
-        max-width: 80ch;
-        grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns for smaller screens */
-    }
   }
+
+  @media (max-width: 480px) {
+      .category {
+          max-width: 80ch;
+          grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns for smaller screens */
+      }
+    }
+
   .card {
     display: grid;
     position: relative;
