@@ -41,7 +41,7 @@
 
   
   .category {
-    max-width:140ch;
+    max-width:120ch;
     margin-inline: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -73,7 +73,7 @@
     position: relative;
   }
   .card:hover .title {
-    color:var(--secondary-color);
+    color: #c3ca94;
     background-color: rgba(0, 0, 0, 0.5); 
   }
   .main-event {
@@ -128,42 +128,42 @@
         background: #fff;
         color: #21201e;
         text-align: center;
-        width: 240px;
-        height: 400px;
-        padding: 2rem;
+        width: 220px;
+        height: 395px;
+        padding: 3rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         border-radius: 1.2rem;
         margin: 2rem; 
-        
+        transition: all 0.3s;
         
     }
 
-    .product:hover img{
+    .product:hover {
         scale: 1.1;
     }
 
     .product:hover{
-        box-shadow: 5px 15px 25px ;
+        box-shadow: 6px 10px 0px ;
     }
 
     .product img{
         height: 200px;
         margin: 1rem;
-        transition: all 0.3s;
+       
     }
 
     .product a:link , .product a:visited{
         color: #ececec;
         display: inline-block;
         text-decoration: none;
-        background-color:var(--main-color);
-        padding: 1.2rem 3rem;
+        background-color:var(--secondary-color);
+        padding:  10px;
         border-radius: 1rem;
-        margin-top: 1rem;
-        transition: all 0.2s;
+        margin-top: 0rem;
+        transition: all 0.3s;
     }
 
     .product a:hover{
