@@ -34,7 +34,7 @@
 
   
   main {
-    max-width: 120ch;
+    max-width: 140ch;
     margin-inline: auto;
   }
 
@@ -122,9 +122,16 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: var(--main-color);
     padding-top: 50px;
   }
+  .products-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+}
 
   .all-products{
       display: flex;
