@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    ProdapiUrl : "http://localhost:5001/products"
+    ProdapiUrl : "http://localhost:8082/products"
 }
