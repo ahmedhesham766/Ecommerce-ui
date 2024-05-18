@@ -32,6 +32,8 @@
       height: calc(100vh - var(--navbar-height));
   }
 
+
+
   
   main {
     max-width: 140ch;
@@ -116,7 +118,7 @@
     }
   }
 
-   .products {
+  .products {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -133,29 +135,31 @@
     margin: 0 auto;
 }
 
-  .all-products{
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  .all-products {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Adjust the gap as needed */
   }
 
-    .product{
-        overflow: hidden;
-        background: #e9e7e7;
-        color: #21201e;
-        text-align: center;
-        width: 220px;
-        height: 395px;
-        padding: 3rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 1.2rem;
-        margin: 2rem; 
-        transition: all 0.3s;
-        
-    }
+  .product {
+    overflow: hidden;
+    background: #e9e7e7;
+    color: #21201e;
+    text-align: center;
+    width: calc(16.666% - 20px); /* Adjust the width to fit 6 items per row */
+    height: 395px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.2rem;
+    margin: 2rem 0; /* Adjust the margin to space out the rows */
+    transition: all 0.3s;
+  }
+  
 
     .product:hover {
         scale: 1.1;
@@ -183,4 +187,23 @@
 
     .product a:hover{
         transform: scale(1.1);
+    }
+
+
+    @media screen and (max-width: 1024px) {
+      .product {
+        width: calc(33.333% - 20px); /* Adjust the width for smaller screens */
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .product {
+        width: calc(50% - 20px); /* Adjust the width for smaller screens */
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .product {
+        width: calc(100% - 20px); /* Adjust the width for smaller screens */
+      }
     }
