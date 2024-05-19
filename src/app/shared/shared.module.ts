@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { CatgoryModule } from '../category/catgory.module';
 
 
 
@@ -16,6 +17,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     CommonModule,
     RouterModule,
     HttpClientModule,
+    CatgoryModule
   ],
   exports: [
     HeaderComponent,
