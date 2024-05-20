@@ -2,113 +2,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/css/all.min.css"> 
 </head>
 <body>
-<div class="container-main" *ngIf="!loading">
-  <main>
-    <section class="full-height">
-      <div class="category">
-        
-          <div class="card main-event" (click)="onCategoryClick('Phone')">
-            <img src="../assets/images/13-colors.png" alt="Main Event">
-            <h2 class="title">📱 Phones</h2>
-          </div>
-          <div class="card" (click)="onCategoryClick('Clothes')">
-            <img src="../assets/images/clothes.jpg" alt="Tennis">
-            <h2 class="title">👕 Clothes</h2>
-          </div>
-          <div class="card" (click)="onCategoryClick('Laptops')">
-            <img src="../assets/images/labtop.png" alt="Football">
-            <h2 class="title">💻 Laptops</h2>
-          </div>
-          <div class="card" (click)="onCategoryClick('Play Station')">
-            <img src="../assets/images/ps.png" alt="Hockey">
-            <h2 class="title">🎮 Play Station</h2>
-          </div>
-          <div class="card" (click)="onCategoryClick('Monitors')">
-            <img src="../assets/images/monitors.png" alt="Ping Pong">
-            <h2 class="title">🖥️ Monitors</h2>
-          </div>
-     
-        
-      </div>
-    </section>
-    <div class="text-center w-100" *ngIf="loading">
-      <app-spinner></app-spinner>
-    </div>
-  </main>
-    
-  <section class="products"> 
-    <div class="products-wrapper" >
+
+
+    <div class="products-wrapper" *ngIf="!loading">
       <div class="all-products" *ngFor="let item of products">
-        <div class="product" >
-            <img src="{{item.imageUrl}}">
-            <div class="product-info">
-                <h4 class="product-title">
-                    {{item.productName}} 
-                </h4>
-                <p class="product-price">{{item.price}}$</p>
-                <a class="product-btn" href="#">Add Cart</a>
-            </div>
-        </div>
+       <app-product [data]="item" (item) = "addToCart($event)"></app-product>
       </div>
     </div>
-  </section>
- 
-  </div>
+
   
-</body>
-        <!-- <div class="product">
-            <img src="../assets/images/iphone.png">
-            <div class="product-info">
-                <h4 class="product-title">
-                    Iphone 14 
-                </h4>
-                <p class="product-price">2300$</p>
-                <a class="product-btn" href="#">Add Cart</a>
-            </div>
-        </div>
-        <div class="product">
-          <img src="../assets/images/iphone.png">
-          <div class="product-info">
-              <h4 class="product-title">
-                  Iphone 14 
-              </h4>
-              <p class="product-price">2300$</p>
-              <a class="product-btn" href="#">Add Cart</a>
-          </div>
-      </div>
-      <div class="product">
-        <img src="../assets/images/iphone.png">
-        <div class="product-info">
-            <h4 class="product-title">
-                Iphone 14 
-            </h4>
-            <p class="product-price">2300$</p>
-            <a class="product-btn" href="#">Add Cart</a>
-        </div>
-    </div>
-    <div class="product">
-      <img src="../assets/images/iphone.png">
-      <div class="product-info">
-          <h4 class="product-title">
-              Iphone 14 
-          </h4>
-          <p class="product-price">2300$</p>
-          <a class="product-btn" href="#">Add Cart</a>
-      </div>
+  <div class="text-center w-100" *ngIf="loading">
+    <app-spinner></app-spinner>
   </div>
-  <div class="product">
-    <img src="../assets/images/iphone.png">
-    <div class="product-info">
-        <h4 class="product-title">
-            Iphone 14 
-        </h4>
-        <p class="product-price">2300$</p>
-        <a class="product-btn" href="#">Add Cart</a>
-    </div>
-</div> -->
 
-
+</body>
