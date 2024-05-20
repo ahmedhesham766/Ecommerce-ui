@@ -1,0 +1,4 @@
+<a (click)="toggleDropdown($event)" href="#">Category</a>
+<ul *ngIf="showDropdown" class="dropdown">
+  <li *ngFor="let category of categories" (click)="selectCategory(category)">{{ category }}</li>
+</ul>

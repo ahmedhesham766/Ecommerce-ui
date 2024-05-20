@@ -1,0 +1,5 @@
+<li (click)="toggleDropdown()"><a href="#">Category</a>
+    <ul *ngIf="showDropdown" class="dropdown">
+      <li *ngFor="let category of categories">{{ category }}</li>
+    </ul>
+</li>
