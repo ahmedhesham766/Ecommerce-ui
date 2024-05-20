@@ -67,18 +67,26 @@ constructor(private service:ProductsService , private categoryService: CategoryS
 
   addToCart(event:any)
   {
-    if("cart" in localStorage)
-    {
-      this.cartProducts = JSON.parse(localStorage.getItem("cart")!);
-      let itemExist = this.cartProducts.find(item => item.id == event.id);
-      if(itemExist)
-        {
-          alert("this product already in cart")
-        }
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+     
+      //this.openLoginPopup(); //open login component 
+      return;
     }
-    this.cartProducts.push(event);
-    localStorage.setItem("cart",JSON.stringify(this.cartProducts));
+      //   if("cart" in localStorage)
+  //   {
+  //     this.cartProducts = JSON.parse(localStorage.getItem("cart")!);
+  //     let itemExist = this.cartProducts.find(item => item.id == event.id);
+  //     if(itemExist)
+  //       {
+  //         alert("this product already in cart")
+  //       }
+  //   }
+  //   this.cartProducts.push(event);
+  //   localStorage.setItem("cart",JSON.stringify(this.cartProducts));
+  // }
   }
+
 }
 
 
