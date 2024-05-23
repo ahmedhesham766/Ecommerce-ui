@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './products/products.module';
 import { CatgoryModule } from './category/catgory.module';
+import { LoginComponent } from './auth/components/login/login.component';
+import { RegisterComponent } from './auth/components/register/register.component';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -17,7 +20,8 @@ import { CatgoryModule } from './category/catgory.module';
     AppRoutingModule,
     SharedModule,
     ProductsModule,
-    CatgoryModule
+    CatgoryModule,
+    AuthModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

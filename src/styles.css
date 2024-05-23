@@ -6,3 +6,21 @@ body {
     background: var(--main-color);
 }
 
+.custom-toast.toast-warning {
+    background-color: red !important;
+    color: white !important;
+    font-weight: bold !important;
+  }
+
+  .p-dialog .p-dialog-content {
+    background: transparent !important; 
+    box-shadow: none !important; 
+    padding: 0 !important;
+  }
+  
+  .p-dialog .p-dialog-header {
+    display: none !important;
+    padding: 0 !important;
+  }
+  
+

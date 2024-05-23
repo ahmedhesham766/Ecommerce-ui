@@ -5,25 +5,22 @@ import { ProductsDetailsComponent } from './components/products-details/products
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { ProductComponent } from './components/product/product.component';
-import { CategoryComponent } from './components/category/category.component';
 
-
-
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
     AllProductsComponent,
     ProductsDetailsComponent,
     ProductComponent,
-    CategoryComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    DialogModule
   ],
   exports:[
     AllProductsComponent ,
-    CategoryComponent
   ]
 })
 export class ProductsModule { }

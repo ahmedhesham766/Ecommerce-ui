@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
 import { Product } from '../../model/Product';
 import { ProductsService } from '../../services/products.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CategoryService } from 'src/app/category/services/category.service';
 import { Subscription } from 'rxjs';
+import { DialogServiceWrapper } from 'src/app/shared/services/dialog/dialog.service';
 
 @Component({
   selector: 'app-all-products',
@@ -17,7 +18,12 @@ selectedCategory: string ="";
 cartProducts : any[] = [];
 private categorySubscription: Subscription = new Subscription;
 
-constructor(private service:ProductsService , private categoryService: CategoryService){}
+
+  constructor(private service:ProductsService ,
+              private categoryService: CategoryService,
+              private dialogServiceWrapper: DialogServiceWrapper,
+              private ngZone: NgZone,
+              private cdr: ChangeDetectorRef){}
 
   ngOnInit(): void {
    this.getProducts();
@@ -70,7 +76,10 @@ constructor(private service:ProductsService , private categoryService: CategoryS
     const userId = localStorage.getItem('userId');
     if (!userId) {
      
-      //this.openLoginPopup(); //open login component 
+      this.ngZone.run(() => {
+        this.dialogServiceWrapper.openLoginDialog();
+      });
+      this.cdr.detectChanges();
       return;
     }
       //   if("cart" in localStorage)

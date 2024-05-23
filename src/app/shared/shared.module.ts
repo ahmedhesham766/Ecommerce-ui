@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CatgoryModule } from '../category/catgory.module';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 
 
 
@@ -17,7 +18,11 @@ import { CatgoryModule } from '../category/catgory.module';
     CommonModule,
     RouterModule,
     HttpClientModule,
-    CatgoryModule
+    CatgoryModule,
+    DynamicDialogModule
+  ],
+  providers: [
+    DialogService // Add DialogService to providers
   ],
   exports: [
     HeaderComponent,
