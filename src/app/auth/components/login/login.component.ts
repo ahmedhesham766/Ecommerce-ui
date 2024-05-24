@@ -13,7 +13,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LoginComponent {
   loginForm: FormGroup ;
   
-  constructor(private fb: FormBuilder , private authService : AuthService , private toastr : ToastrService, private dialogServiceWrapper: DialogServiceWrapper) {
+  constructor(private fb: FormBuilder ,
+    private authService : AuthService ,
+    private toastr : ToastrService,
+    private dialogServiceWrapper: DialogServiceWrapper) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(4)]]
@@ -27,7 +30,8 @@ export class LoginComponent {
         (response) => {
           if (response.userID) {
             this.toastr.success(response.message);
-            //save userId in local storage to reuse it in another apis 
+            localStorage.setItem('userId', response.userID); // Save userId in local storage
+            this.dialogServiceWrapper.closeDialog(); // Close the dialog
           } else {
             this.toastr.error(response.message);
           }
@@ -50,6 +54,7 @@ export class LoginComponent {
   }
 
   openRegisterDialog() {
+    this.dialogServiceWrapper.closeDialog();
     this.dialogServiceWrapper.openRegisterDialog();
   }
 

@@ -22,7 +22,7 @@ import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
     DynamicDialogModule
   ],
   providers: [
-    DialogService // Add DialogService to providers
+    DialogService 
   ],
   exports: [
     HeaderComponent,

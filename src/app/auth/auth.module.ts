@@ -16,13 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     BrowserAnimationsModule, 
     ReactiveFormsModule,
-    ToastrModule.forRoot({
-      positionClass: 'toast-top-right',
-      preventDuplicates: true,
-      timeOut: 1300,
-      tapToDismiss: true,
-      toastClass: 'ngx-toastr custom-toast'
-    }),
+    
   ],
   exports:[
     LoginComponent,

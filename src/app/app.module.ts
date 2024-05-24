@@ -6,9 +6,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './products/products.module';
 import { CatgoryModule } from './category/catgory.module';
-import { LoginComponent } from './auth/components/login/login.component';
-import { RegisterComponent } from './auth/components/register/register.component';
 import { AuthModule } from './auth/auth.module';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -21,7 +20,14 @@ import { AuthModule } from './auth/auth.module';
     SharedModule,
     ProductsModule,
     CatgoryModule,
-    AuthModule 
+    AuthModule ,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      timeOut: 1300,
+      tapToDismiss: true,
+      toastClass: 'ngx-toastr custom-toast'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

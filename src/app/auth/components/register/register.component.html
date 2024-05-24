@@ -4,17 +4,18 @@
         <div class="input-box">
             <input type="text" 
             placeholder="FullName" 
-            formControlName="fullname"
+            formControlName="fullName"
             required>
             <i class='bx bx-user-circle'></i>
-            <div *ngIf="fullname!.invalid && (fullname!.dirty || fullname!.touched)" class="error">
-                <div *ngIf="fullname!.errors?.['required']">fullname is required.</div>
+            <div *ngIf="fullName!.invalid && (fullName!.dirty || fullName!.touched)" class="error">
+                <div *ngIf="fullName!.errors?.['required']">fullName is required.</div>
             </div>
         </div>
         <div class="input-box">
             <input type="text" 
-            placeholder="Address" 
-            formControlName="address">
+            placeholder="Address"
+            formControlName="address"
+            >
             <i class='bx bxs-location-plus' ></i>
            
         </div>
@@ -31,11 +32,11 @@
         <div class="input-box">
             <input type="text" 
             placeholder="UserName" 
-            formControlName="username"
+            formControlName="userName"
             required>
             <i class='bx bx-user'></i>
-            <div *ngIf="username!.invalid && (username!.dirty || username!.touched)" class="error">
-                <div *ngIf="username!.errors?.['required']">Username is required.</div>
+            <div *ngIf="userName!.invalid && (userName!.dirty || userName!.touched)" class="error">
+                <div *ngIf="userName!.errors?.['required']">Username is required.</div>
             </div>
         </div>
         <div class="input-box">
@@ -55,7 +56,7 @@
 
         <div class="register-link">
             <p>Already have an account?</p>
-            <a href="#" >Login</a>
+            <a (click)="openLoginDialog()" class="register-login-button" style="cursor: pointer;" >Login</a>
         </div>
     </form>
 </div>

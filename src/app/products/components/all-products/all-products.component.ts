@@ -5,6 +5,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { CategoryService } from 'src/app/category/services/category.service';
 import { Subscription } from 'rxjs';
 import { DialogServiceWrapper } from 'src/app/shared/services/dialog/dialog.service';
+import { CartsService } from 'src/app/cart/services/carts.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-all-products',
@@ -22,8 +24,9 @@ private categorySubscription: Subscription = new Subscription;
   constructor(private service:ProductsService ,
               private categoryService: CategoryService,
               private dialogServiceWrapper: DialogServiceWrapper,
-              private ngZone: NgZone,
-              private cdr: ChangeDetectorRef){}
+              private cartService : CartsService,
+              private toastr : ToastrService
+             ){}
 
   ngOnInit(): void {
    this.getProducts();
@@ -57,6 +60,7 @@ private categorySubscription: Subscription = new Subscription;
     this.selectedCategory = category.toLowerCase(); 
     if(this.selectedCategory == 'copia')
       {
+        this.loading = false;
         this.getProducts();
         return;
       }
@@ -73,14 +77,17 @@ private categorySubscription: Subscription = new Subscription;
 
   addToCart(event:any)
   {
-    const userId = localStorage.getItem('userId');
+    const userIdString  = localStorage.getItem('userId');
+    const userId = userIdString  !== null ? Number(userIdString ) : null;
     if (!userId) {
-     
-      this.ngZone.run(() => {
         this.dialogServiceWrapper.openLoginDialog();
-      });
-      this.cdr.detectChanges();
-      return;
+    }
+    else{
+      this.cartService.addProductToCart(userId,event.productId).subscribe(
+        (response) =>{
+          this.toastr.success(response.message);
+        }
+      )
     }
       //   if("cart" in localStorage)
   //   {
