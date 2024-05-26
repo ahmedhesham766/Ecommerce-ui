@@ -37,6 +37,7 @@ export class LoginComponent {
           }
         },
         (error : HttpErrorResponse) =>{
+          console.log(error.message);
           this.toastr.error('An error occurred. Please try again.', 'Login Failed');
         }
       )

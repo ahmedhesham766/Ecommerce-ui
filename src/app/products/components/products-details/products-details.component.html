@@ -1,1 +1,36 @@
-<p>products-details works!</p>
+<div class="flex-box">
+    <div class="left">
+        <div class="big-img">
+            <img *ngIf="selectedImageUrl" [src]="selectedImageUrl" alt="{{data.productName}}">
+        </div>
+        <div class="images"  *ngIf="data.images && data.images.length > 0">
+            <div class="small-img" *ngFor="let img of data.images" (click)="showImg(img.imageUrl)">
+                <img [src]="img.imageUrl" alt="Thumbnail of {{data.productName}}">
+              </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="url">Home > Product > {{data.categoryName}}</div>
+        <div class="pname">{{data.productName}}</div>
+        <div class="ratings">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="price"> <p>Price: </p>{{data.price}}$<p></div>
+        <div class="quantity">
+            <p>Quantity: </p>
+            <p>{{data.stock}}</p>
+            
+        </div>
+        <div class="btn-box">
+            <button class="cart-btn">Add to Cart</button>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+</div>
+
+

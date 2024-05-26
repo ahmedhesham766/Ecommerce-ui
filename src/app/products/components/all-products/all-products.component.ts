@@ -85,7 +85,13 @@ private categorySubscription: Subscription = new Subscription;
     else{
       this.cartService.addProductToCart(userId,event.productId).subscribe(
         (response) =>{
-          this.toastr.success(response.message);
+          if(response.cart)
+            {
+              this.toastr.success(response.message);
+            }
+            else{
+              this.toastr.warning(response.message)
+            }
         }
       )
     }

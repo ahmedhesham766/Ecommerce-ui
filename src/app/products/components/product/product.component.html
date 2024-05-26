@@ -1,11 +1,12 @@
-<div class="product" >
-    <img src="{{data.imageUrl}}">
+<div class="product"  (click)="goToDetails()">
+    <img src="{{data.images[0].imageUrl}}">
     <div class="product-info">
-        <h4 class="product-title">
+        <h4 class="product-title" >
             {{data.productName}} 
         </h4>
         <p class="product-price">{{data.price}}$</p>
-        <a class="product-btn" (click)="add()" >Add Cart</a>
+        <a class="product-btn" (click)="addToCart($event)" >Add Cart</a>
     </div>
+    <div *ngIf="data.stock === 0" class="badge out-of-stock">Out of Stock</div>
 </div>
 

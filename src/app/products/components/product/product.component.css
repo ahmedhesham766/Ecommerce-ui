@@ -5,6 +5,7 @@ img {
     display: block;
   }
     .product{
+        position: relative;
         overflow: hidden;
         background: #e9e7e7;
         color: #21201e;
@@ -19,7 +20,7 @@ img {
         border-radius: 1.2rem;
         margin: 2rem; 
         transition: all 0.3s;
-        
+        cursor: pointer;
     }
 
     .product:hover {
@@ -68,4 +69,20 @@ img {
       .product {
         width: calc(100% - 20px); /* Adjust the width for smaller screens */
       }
+    }
+
+    .badge {
+      position: absolute;
+      top: 60px;
+      right: -13px;
+      padding: 4px 16px;
+      font-size: 0.75em;
+      font-weight: bold;
+      color: #fff;
+      transform: rotate(45deg); /* Rotate the badge to make it diagonal */
+      transform-origin: top right; /* Ensure rotation is around the top-right corner */
+    }
+    
+    .out-of-stock {
+      background-color: var(--secondary-color);
     }

@@ -44,6 +44,7 @@ export class RegisterComponent {
             }
             },
             (error: HttpErrorResponse) => {
+              console.log(error.message);
               this.toastr.error('An error occurred. Please try again.', 'Registration Failed');
             }
           );

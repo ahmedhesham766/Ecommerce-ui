@@ -7,7 +7,7 @@ body {
 }
 
 .custom-toast.toast-warning {
-    background-color: red !important;
+    background-color: var(--secondary-color) !important;
     color: white !important;
     font-weight: bold !important;
   }
