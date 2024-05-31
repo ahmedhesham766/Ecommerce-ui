@@ -18,12 +18,14 @@
       <ul>
         <li><a  href="#">Home</a></li>
         <li><a routerLink="/products">Products</a></li>
-        <!-- <li><a routerLink="/cart">Cart</a></li> -->
         <li class="dropdown-container">
           <app-categories></app-categories>
         </li>
         <li><a href="#">Feedback</a></li>
-        <i class="fas fa-shopping-cart" ></i>
+        <li class="cart-container">
+          <i class="fas fa-shopping-cart"></i>
+          <span *ngIf="prodCount > 0" class="badge">{{ prodCount }}</span>
+        </li>
       </ul>
     </nav>
   </body>

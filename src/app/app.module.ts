@@ -22,7 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
     CatgoryModule,
     AuthModule ,
     ToastrModule.forRoot({
-      positionClass: 'toast-top-right',
+      positionClass: 'toast-top-center',
       preventDuplicates: true,
       timeOut: 1300,
       tapToDismiss: true,

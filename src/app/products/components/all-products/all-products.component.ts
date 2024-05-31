@@ -88,6 +88,7 @@ private categorySubscription: Subscription = new Subscription;
           if(response.cart)
             {
               this.toastr.success(response.message);
+              this.cartService.updateCart(response.cart);
             }
             else{
               this.toastr.warning(response.message)
