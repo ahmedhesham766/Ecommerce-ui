@@ -1,39 +1,108 @@
-<div class="flex-box">
+<div class="flex-box" *ngIf="!loading">
     <div class="left">
         <div class="big-img">
-            <img *ngIf="selectedImageUrl" [src]="selectedImageUrl" alt="{{data.productName}}">
+            <img *ngIf="selectedImageUrl" [src]="selectedImageUrl" alt="{{data?.productName}}">
         </div>
-        <div class="images"  *ngIf="data.images && data.images.length > 0">
-            <div class="small-img" *ngFor="let img of data.images" (click)="showImg(img.imageUrl)">
-                <img [src]="img.imageUrl" alt="Thumbnail of {{data.productName}}">
+        <div class="images"  *ngIf="data?.images && data?.images!.length > 0">
+            <div class="small-img" *ngFor="let img of data?.images" (click)="showImg(img.imageUrl)">
+                <img [src]="img.imageUrl" alt="Thumbnail of {{data?.productName}}">
               </div>
         </div>
     </div>
 
     <div class="right">
-        <div class="url">Home > Product > {{data.categoryName}}</div>
-        <div class="pname">{{data.productName}}</div>
-        <div class="ratings">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-        </div>
-        <div class="price">
+        <!-- <div class="url">Home > Product > {{data?.categoryName}}</div> -->
+        <!-- <div class="pname">{{data?.productName}}</div> -->
+        <h2 class="onb-product-details-box--title" >
+            {{data?.productName}}
+        </h2>
+        <div class="onb-product-details-box--info-wrapper">
+            <span class="onb-product-details-box--price"><strong>{{data?.price}}$</strong></span>
+            <span *ngIf="data!.stock > 0" class="onb-product-details-box--stock">Available - {{ data?.stock }}</span>
+            <span *ngIf="data!.stock === 0" class="onb-product-details-box--stock"  style="color: rgb(255, 4, 4);">Out of stock</span>
+          </div>
+          <div class="onb-product-details-box--color-picker onb-color-picker">
+            <h3 class="onb-color-picker--title">choose color</h3>
+            <form class="onb-color-picker--radio-group">
+              <div class="onb-color-picker--radio-wrapper">
+                <input class="onb-color-picker--radio onb-color-picker--radio__blue" 
+                       id="onb-color-picker-radio-blue" 
+                       type="radio" 
+                       name="color" 
+                       value="blue"
+                       aria-label="blue color"
+                       checked="checked" />
+                <label class="onb-color-picker--label" for="onb-color-picker-radio-blue"></label>
+              </div>
+              <div class="onb-color-picker--radio-wrapper">
+                <input class="onb-color-picker--radio onb-color-picker--radio__green" 
+                       id="onb-color-picker-radio-green" 
+                       type="radio" 
+                       name="color" 
+                       value="green" 
+                       aria-label="green color" />
+                <label class="onb-color-picker--label" for="onb-color-picker-radio-green"></label>
+              </div>
+              <div class="onb-color-picker--radio-wrapper">
+                <input class="onb-color-picker--radio onb-color-picker--radio__red" 
+                       id="onb-color-picker-radio-red" 
+                       type="radio" 
+                       name="color" 
+                       value="red" 
+                       aria-label="red color" />
+                <label class="onb-color-picker--label" for="onb-color-picker-radio-red"></label>
+              </div>
+              <div class="onb-color-picker--radio-wrapper">
+                <input class="onb-color-picker--radio onb-color-picker--radio__yellow" 
+                       id="onb-color-picker-radio-yellow" 
+                       type="radio" 
+                       name="color" 
+                       value="yellow"
+                       aria-label="yellow color" />
+                <label class="onb-color-picker--label" for="onb-color-picker-radio-yellow"></label>
+              </div>
+              <div class="onb-color-picker--radio-wrapper">
+                <input class="onb-color-picker--radio onb-color-picker--radio__brown" 
+                       id="onb-color-picker-radio-brown" 
+                       type="radio" 
+                       name="color" 
+                       value="brown" 
+                       aria-label="brown color"/>
+                <label class="onb-color-picker--label" for="onb-color-picker-radio-brown"></label>
+              </div>
+              <div class="onb-color-picker--radio-wrapper">
+                <input class="onb-color-picker--radio onb-color-picker--radio__grey" 
+                       id="onb-color-picker-radio-grey" 
+                       type="radio" 
+                       name="color" 
+                       value="grey"
+                       aria-label="grey color" />
+                <label class="onb-color-picker--label" for="onb-color-picker-radio-grey"></label>
+              </div>
+            </form>
+          </div>
+
+        <!-- <div class="price">
              <p>Price: </p>
-             <p>{{data.price}}$</p>
+             <p>{{data?.price}}$</p>
         </div>
         <div class="quantity">
-            <p>Quantity: </p>
-            <p>{{data.stock}}</p>
-            
-        </div>
-        <div class="btn-box">
-            <button class="cart-btn">Add to Cart</button>
-            <button class="buy-btn">Buy Now</button>
+            <p>Stock: </p>
+            <p *ngIf="data!.stock > 0">{{ data?.stock }}</p>
+            <p *ngIf="data?.stock === 0" style="color: rgb(255, 4, 4);">Out of stock</p>
+          </div> -->
+        <!-- <div class="btn-box">
+            <button class="cart-btn" (click)="addToCart(id)" [disabled]="data?.stock === 0">Add to Cart</button>        
+        </div> -->        
+        <div class="onb-product-details-box--interaction">
+          <a class="onb-product-details-box--size-link onb-button onb-button__ghost"
+          href="#">size</a>
+      
+            <button class="onb-product-details-box--add-to-cart-button onb-button onb-button__primary"
+            (click)="addToCart(id)">add to cart</button>
         </div>
     </div>
+    <app-spinner *ngIf="loading"></app-spinner>
 </div>
 
 

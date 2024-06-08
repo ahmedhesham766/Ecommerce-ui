@@ -96,18 +96,6 @@ private categorySubscription: Subscription = new Subscription;
         }
       )
     }
-      //   if("cart" in localStorage)
-  //   {
-  //     this.cartProducts = JSON.parse(localStorage.getItem("cart")!);
-  //     let itemExist = this.cartProducts.find(item => item.id == event.id);
-  //     if(itemExist)
-  //       {
-  //         alert("this product already in cart")
-  //       }
-  //   }
-  //   this.cartProducts.push(event);
-  //   localStorage.setItem("cart",JSON.stringify(this.cartProducts));
-  // }
   }
 
 }

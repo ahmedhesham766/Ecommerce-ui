@@ -1,5 +1,24 @@
 :root {
     --main-color: #614646; 
     --secondary-color: #917070;
+    --third-color: #b3a3a3;
     --navbar-height: 93px;
+    --navbar-color: #171c24;
+
+
+    textColor: #444444;
+    gray: #bbb;
+    bg: whitesmoke;
+    pgb: #42c8cb;
+    pgt: #6bffc8;
+    dot: #349a98;
+    bgb: #ff4164;
+    bgt: #ff886b;
+    bdot1: #59e8c8;
+    bdot2: #ffee71;
+    bdot3: #6654af;
+    bdot4: #343434;
+    bdot5: #dfdfdf;
+    star: #fe6067;
+    discount: #fe6168;
   }

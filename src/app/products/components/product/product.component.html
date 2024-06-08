@@ -1,4 +1,4 @@
-<div class="product"  (click)="goToDetails()">
+<!-- <div class="product" routerLink="/products/details/{{data.productId}}">
     <img src="{{data.images[0].imageUrl}}">
     <div class="product-info">
         <h4 class="product-title" >
@@ -6,6 +6,37 @@
         </h4>
         <p class="product-price">{{data.price}}$</p>
         <a class="product-btn" (click)="addToCart($event)" >Add Cart</a>
+    </div>
+    <div *ngIf="data.stock === 0" class="badge out-of-stock">Out of Stock</div>
+</div> -->
+<div class="container" routerLink="/products/details/{{data.productId}}">
+    <div class="card"  data-category-name="Nike">
+        <div class="imgBx">
+            <img [src]="'../assets/images/' + data.categoryName.toLowerCase() + '/product-image.png'" alt="Product Image">
+        </div>
+
+        <div class="contentBx">
+
+            <h2> {{data.productName}} </h2>
+
+            <p class="product-price">{{data.price}}$</p>
+            <div class="size">
+                <h3>Size :</h3>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+            </div>
+            <div class="color">
+
+                <h3>Color :</h3>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a class="product-btn" (click)="addToCart($event)" >Add Cart</a>
+        </div>
+
     </div>
     <div *ngIf="data.stock === 0" class="badge out-of-stock">Out of Stock</div>
 </div>

@@ -13,10 +13,6 @@ export class ProductComponent {
 constructor(private router: Router) {}
   
 
-  goToDetails() {
-    this.router.navigate(['/products/details', this.data.productId]);
-  }
-
   addToCart(event: MouseEvent){  
     event.stopPropagation();
     this.item.emit(this.data);

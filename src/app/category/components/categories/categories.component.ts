@@ -7,7 +7,7 @@ import { CategoryService } from '../../services/category.service';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent {
-  categories: string[] = ['Copia','Phone', 'Shoes', 'Clothes', 'PlayStation'];
+  categories: string[] = ['Copia','Nike', 'Adidas', 'Puma', 'Reebok' ,'New Balance'];
   showDropdown: boolean = false;
 
   constructor(private categoryService: CategoryService) {}
