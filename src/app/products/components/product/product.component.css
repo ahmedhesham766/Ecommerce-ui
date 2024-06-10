@@ -131,7 +131,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: #1BBFE9;
+        background: var(--selected-color, #1BBFE9);;
         clip-path: circle(150px at 80% 20%);
         transition: 0.5s ease-in-out;
     }
@@ -259,17 +259,7 @@
         cursor: pointer;
     }
     
-    .container .card .contentBx .color span:nth-child(2) {
-         background: #1BBFE9;
-    }
-    
-    .container .card .contentBx .color span:nth-child(3) {
-         background: #1B2FE9;
-    }
-    
-    .container .card .contentBx .color span:nth-child(4) {
-         background: #080481;
-    }
+
     
     .container .card .contentBx a {
         display: inline-block;

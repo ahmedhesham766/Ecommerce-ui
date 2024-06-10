@@ -114,38 +114,15 @@ wrapping to next row */
   display: none;
 }
 
-.onb-color-picker--radio + label::before {
+.color-circle {
   content: '';
   display: block;
   width: 2.7rem;
   height: 2.7rem;
-  background-color: grey;
   border-radius: 50%;
+  background-color: grey; 
 }
 
-.onb-color-picker--radio__blue + label::before {
-  background-color: #7cc7e3;
-}
-
-.onb-color-picker--radio__green + label::before {
-  background-color: #bfe79e;
-}
-
-.onb-color-picker--radio__red + label::before {
-  background-color: #f69679;
-}
-
-.onb-color-picker--radio__yellow + label::before {
-  background-color: #fff427;
-}
-
-.onb-color-picker--radio__brown + label::before {
-  background-color: #915e2b;
-}
-
-.onb-color-picker--radio__grey + label::before {
-  background-color: #656565;
-}
 
 .onb-color-picker--radio:checked + label::after {
   content: '';
@@ -190,11 +167,14 @@ wrapping to next row */
 }
 
 .onb-button__primary {
-  background-color: var(--primary-color);
+  background-color: var(--navbar-color);
   color: #fff;
   font-weight: 600;
 }
-
+.onb-button__primary:hover {
+  background-color: var(--third-color);
+  color: #000000; 
+}
 .onb-button__secondary {
   border: 2px solid lighten(var(--default-text-color), 30%);
   color: var(--default-text-color);

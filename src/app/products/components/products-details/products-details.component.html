@@ -24,60 +24,22 @@
           <div class="onb-product-details-box--color-picker onb-color-picker">
             <h3 class="onb-color-picker--title">choose color</h3>
             <form class="onb-color-picker--radio-group">
-              <div class="onb-color-picker--radio-wrapper">
-                <input class="onb-color-picker--radio onb-color-picker--radio__blue" 
-                       id="onb-color-picker-radio-blue" 
+              <div class="onb-color-picker--radio-wrapper" *ngFor="let color of data?.colors">
+                <input class="onb-color-picker--radio "    
+                       [ngClass]="'onb-color-picker--radio__' + color.colorName" 
+                       [id]="'onb-color-picker-radio-' + color.colorName" 
                        type="radio" 
                        name="color" 
-                       value="blue"
-                       aria-label="blue color"
-                       checked="checked" />
-                <label class="onb-color-picker--label" for="onb-color-picker-radio-blue"></label>
-              </div>
-              <div class="onb-color-picker--radio-wrapper">
-                <input class="onb-color-picker--radio onb-color-picker--radio__green" 
-                       id="onb-color-picker-radio-green" 
-                       type="radio" 
-                       name="color" 
-                       value="green" 
-                       aria-label="green color" />
-                <label class="onb-color-picker--label" for="onb-color-picker-radio-green"></label>
-              </div>
-              <div class="onb-color-picker--radio-wrapper">
-                <input class="onb-color-picker--radio onb-color-picker--radio__red" 
-                       id="onb-color-picker-radio-red" 
-                       type="radio" 
-                       name="color" 
-                       value="red" 
-                       aria-label="red color" />
-                <label class="onb-color-picker--label" for="onb-color-picker-radio-red"></label>
-              </div>
-              <div class="onb-color-picker--radio-wrapper">
-                <input class="onb-color-picker--radio onb-color-picker--radio__yellow" 
-                       id="onb-color-picker-radio-yellow" 
-                       type="radio" 
-                       name="color" 
-                       value="yellow"
-                       aria-label="yellow color" />
-                <label class="onb-color-picker--label" for="onb-color-picker-radio-yellow"></label>
-              </div>
-              <div class="onb-color-picker--radio-wrapper">
-                <input class="onb-color-picker--radio onb-color-picker--radio__brown" 
-                       id="onb-color-picker-radio-brown" 
-                       type="radio" 
-                       name="color" 
-                       value="brown" 
-                       aria-label="brown color"/>
-                <label class="onb-color-picker--label" for="onb-color-picker-radio-brown"></label>
-              </div>
-              <div class="onb-color-picker--radio-wrapper">
-                <input class="onb-color-picker--radio onb-color-picker--radio__grey" 
-                       id="onb-color-picker-radio-grey" 
-                       type="radio" 
-                       name="color" 
-                       value="grey"
-                       aria-label="grey color" />
-                <label class="onb-color-picker--label" for="onb-color-picker-radio-grey"></label>
+                       [value]="color.colorName"
+                       [attr.aria-label]="color.colorName + ' color'"
+                       (change)="selectColor(color.colorName)"
+                       [checked]="color.colorName === selectedColor"/>
+                <label class="onb-color-picker--label" [for]="'onb-color-picker-radio-' + color.colorName">
+                  <span class="color-circle" [ngStyle]="{'background-color': color.colorName}"></span>
+               
+                </label>
+                      
+
               </div>
             </form>
           </div>

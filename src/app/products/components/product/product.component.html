@@ -10,7 +10,7 @@
     <div *ngIf="data.stock === 0" class="badge out-of-stock">Out of Stock</div>
 </div> -->
 <div class="container" routerLink="/products/details/{{data.productId}}">
-    <div class="card"  data-category-name="Nike">
+    <div class="card"  data-category-name="Nike" [ngStyle]="{'--selected-color': selectedColor}">
         <div class="imgBx">
             <img [src]="'../assets/images/' + data.categoryName.toLowerCase() + '/product-image.png'" alt="Product Image">
         </div>
@@ -30,9 +30,11 @@
             <div class="color">
 
                 <h3>Color :</h3>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span *ngFor="let color of data.colors" 
+                [ngStyle]="{'background-color': color.colorName}" 
+                (click)="selectColor(color.colorName,$event)">
+                </span>
+
             </div>
             <a class="product-btn" (click)="addToCart($event)" >Add Cart</a>
         </div>

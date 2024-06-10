@@ -5,6 +5,7 @@ import { Product } from '../../model/Product';
 import { DialogServiceWrapper } from 'src/app/shared/services/dialog/dialog.service';
 import { CartsService } from 'src/app/cart/services/carts.service';
 import { ToastrService } from 'ngx-toastr';
+import { ColorService } from 'src/app/shared/services/color/color.service';
 
 @Component({
   selector: 'app-products-details',
@@ -16,12 +17,13 @@ export class ProductsDetailsComponent implements OnInit{
   data:Product | null = null;
   selectedImageUrl: string | undefined;
   loading:boolean =false;
-
+  selectedColor: string | undefined;
   constructor(private router : ActivatedRoute ,
               private service : ProductsService,
               private dialogServiceWrapper: DialogServiceWrapper,
               private cartService : CartsService,
-              private toastr : ToastrService
+              private toastr : ToastrService,
+              private colorService: ColorService
              )
   {
     const idParam = this.router.snapshot.paramMap.get("id");
@@ -29,6 +31,7 @@ export class ProductsDetailsComponent implements OnInit{
   }
   
   ngOnInit(): void {
+    this.colorService.currentColor.subscribe(color => this.selectedColor = color);
     this.getProduct(this.id);
   }
 
@@ -38,7 +41,7 @@ export class ProductsDetailsComponent implements OnInit{
     this.service.getProductById(id).subscribe(
       (response) =>{
         this.loading = false;
-        this.data = response
+        this.data = response;
         this.selectedImageUrl = response.images[0].imageUrl;
         this.data.stock = response.stock;
         this.service.updateStock(this.data);
@@ -86,5 +89,7 @@ export class ProductsDetailsComponent implements OnInit{
       )
     }
   }
-
+  selectColor(colorName: string): void {
+    this.colorService.changeColor(colorName);
+  }
 }
