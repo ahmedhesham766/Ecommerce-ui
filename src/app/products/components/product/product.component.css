@@ -48,7 +48,7 @@
         color: #ececec;
         display: inline-block;
         text-decoration: none;
-        background-color:var(--secondary-color);
+        background-color:var(--second-color);
         padding:  10px;
         border-radius: 1rem;
         margin-top: 0rem;
@@ -91,7 +91,7 @@
     }
     
     .out-of-stock {
-      background-color: var(--secondary-color);
+      background-color: var(--second-color);
     } */
 
     @import url('https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600,700,800, 800i, 900&display=swap');

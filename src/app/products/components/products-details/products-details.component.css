@@ -132,7 +132,7 @@ wrapping to next row */
   left: .5625rem;
   width: 1.575rem;
   height: 1.575rem;
-  background-color: white;
+  background-color: var(--second-color);
   border-radius: 50%;
 }
 
